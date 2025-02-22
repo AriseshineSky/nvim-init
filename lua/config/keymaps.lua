@@ -30,6 +30,7 @@ local nmappings = {
 	{ from = "ck",            to = "ci", },
 	{ from = "c,.",           to = "c%", },
 	{ from = "yh",            to = "ye", },
+	{ from = "yk",            to = "yi", },
 
 	-- Actions
 	{ from = "l",             to = "u" },

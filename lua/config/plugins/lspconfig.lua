@@ -129,6 +129,7 @@ M.config = {
 			require("config.lsp.json").setup(lspconfig, lsp)
 			-- require("config.lsp.flutter").setup(lsp)
 			require("config.lsp.html").setup(lspconfig, lsp)
+			require("config.lsp.ruby").setup(lspconfig, lsp)
 
 			require 'lspconfig'.html.setup {}
 			require 'lspconfig'.pyright.setup {}
