@@ -66,6 +66,7 @@ require("lazy").setup({
 	-- require("config.plugins.tex"),
 	-- require("config.plugins.yazi"),
 	-- { "dstein64/vim-startuptime" },
+	{ "RRethy/nvim-treesitter-endwise" },
 }, {
 })
 

@@ -1,11 +1,12 @@
 return {
 	setup = function(lspconfig, lsp)
 		lspconfig.ruby_lsp.setup({
-			cmd = { "ruby-lsp" },
-			on_attach = function()
-			end,
-			settings = {
-			}
+			cmd = { 'ruby-lsp' },
+			filetypes = { 'ruby', 'eruby' },
+			init_options = {
+				formatter = 'auto',
+			},
+			single_file_support = true,
 		})
 
 		lspconfig.solargraph.setup({
@@ -16,6 +17,10 @@ return {
 				},
 			},
 			init_options = { formatting = true },
+			filetypes = { 'ruby' },
+		})
+		lspconfig.rubocop.setup({
+			cmd = { 'rubocop', '--lsp' },
 			filetypes = { 'ruby' },
 		})
 	end
