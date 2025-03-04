@@ -1,14 +1,5 @@
 return {
 	setup = function(lspconfig, lsp)
-		lspconfig.ruby_lsp.setup({
-			cmd = { 'ruby-lsp' },
-			filetypes = { 'ruby', 'eruby' },
-			init_options = {
-				formatter = 'auto',
-			},
-			single_file_support = true,
-		})
-
 		lspconfig.solargraph.setup({
 			cmd = { 'solargraph', 'stdio' },
 			settings = {
