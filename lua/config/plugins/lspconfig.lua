@@ -125,6 +125,7 @@ M.config = {
 
 			local lspconfig = require('lspconfig')
 
+			require("config.lsp.c").setup(lspconfig, lsp)
 			require("config.lsp.lua").setup(lspconfig, lsp)
 			require("config.lsp.json").setup(lspconfig, lsp)
 			-- require("config.lsp.flutter").setup(lsp)
