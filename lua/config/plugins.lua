@@ -30,7 +30,7 @@ end
 vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 
 require("lazy").setup({
-	-- require("config.plugins.telescope").config,
+	require("config.plugins.telescope").config,
 	require("config.plugins.fzf"),
 	require("config.plugins.colorscheme"),
 	require("config.plugins.notify"),
@@ -39,11 +39,10 @@ require("lazy").setup({
 	require("config.plugins.scrollbar"),
 	require("config.plugins.tabline"),
 	require("config.plugins.autocomplete").config,
-	-- require("config.plugins.debugger"),
+	require("config.plugins.debugger"),
 	require("config.plugins.joshuto"),
 	require("config.plugins.lspconfig").config,
-	-- require("config.plugins.flutter"),
-	-- require("config.plugins.go"),
+	require("config.plugins.go"),
 	require("config.plugins.treesitter"),
 	require("config.plugins.comment"),
 	require("config.plugins.surround"),
@@ -57,15 +56,15 @@ require("lazy").setup({
 	require("config.plugins.search"),
 	require("config.plugins.yank"),
 	require("config.plugins.snippets"),
-	-- require("config.plugins.window-management"),
+	require("config.plugins.window-management"),
 	require("config.plugins.undo"),
 	require("config.plugins.ft"),
 	require("config.plugins.fun"),
 	require("config.plugins.winbar"),
-	-- require("config.plugins.leap"),
-	-- require("config.plugins.tex"),
-	-- require("config.plugins.yazi"),
-	-- { "dstein64/vim-startuptime" },
+	require("config.plugins.leap"),
+	require("config.plugins.tex"),
+	require("config.plugins.yazi"),
+	{ "dstein64/vim-startuptime" },
 	{ "RRethy/nvim-treesitter-endwise" },
 }, {
 })

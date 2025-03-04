@@ -3,7 +3,6 @@ delete buffer
 compile run
 quickfix list
 harpoon
-don't load flutter on every filetype
 
 
 refine:
