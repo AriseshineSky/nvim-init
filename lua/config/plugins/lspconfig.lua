@@ -259,7 +259,6 @@ M.config = {
 			F.configureKeybinds()
 
 			local format_on_save_filetypes = {
-				dart = true,
 				json = true,
 				go = true,
 				lua = true,
@@ -268,10 +267,8 @@ M.config = {
 				javascript = true,
 				typescript = true,
 				typescriptreact = true,
-				c = true,
+				-- c = true,
 				cpp = true,
-				objc = true,
-				objcpp = true,
 				dockerfile = true,
 				terraform = false,
 				tex = true,
