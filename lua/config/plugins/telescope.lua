@@ -153,7 +153,7 @@ M.config = {
 			})
 
 			ts.load_extension('neoclip')
-			ts.load_extension('dap')
+			-- ts.load_extension('dap')
 			ts.load_extension('telescope-tabs')
 			ts.load_extension('fzf')
 			ts.load_extension('simulators')
@@ -163,7 +163,7 @@ M.config = {
 				apple_simulator = true,
 			})
 			-- ts.load_extension("ui-select")
-			local tsdap = ts.extensions.dap;
+			-- local tsdap = ts.extensions.dap;
 			-- vim.keymap.set("n", "<leader>'v", tsdap.variables, m)
 			-- vim.keymap.set("n", "<leader>'a", tsdap.commands, m)
 			-- vim.keymap.set("n", "<leader>'b", tsdap.list_breakpoints, m)
