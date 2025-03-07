@@ -30,6 +30,7 @@ end
 vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 
 require("lazy").setup({
+	{ "folke/snacks.nvim",             enabled = false },
 	require("config.plugins.telescope").config,
 	require("config.plugins.fzf"),
 	require("config.plugins.colorscheme"),
@@ -64,6 +65,7 @@ require("lazy").setup({
 	require("config.plugins.leap"),
 	-- require("config.plugins.tex"),
 	require("config.plugins.yazi"),
+	-- require("config.plugins.snacks"),
 	{ "dstein64/vim-startuptime" },
 	{ "RRethy/nvim-treesitter-endwise" },
 }, {
