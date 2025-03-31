@@ -63,9 +63,9 @@ M.config = {
 				ensure_installed = {
 					"biome",
 					"cssls",
-					-- 'ts_ls',
+					'ts_ls',
 					'eslint',
-					-- 'gopls',
+					'ruby_lsp',
 					'jsonls',
 					'html',
 					'clangd',
@@ -82,10 +82,10 @@ M.config = {
 			})
 
 			lsp.on_attach(function(client, bufnr)
-				-- if client.name == "ts_ls" and vim.bo[bufnr].filetype ~= "javascript" then
-				-- 	client.server_capabilities.documentFormattingProvider = false
-				-- 	client.server_capabilities.documentRangeFormattingProvider = false
-				-- end
+				if client.name == "ts_ls" and vim.bo[bufnr].filetype ~= "javascript" then
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end
 				lsp.default_keymaps({ buffer = bufnr })
 				client.server_capabilities.semanticTokensProvider = nil
 				require("config.plugins.autocomplete").configfunc()
@@ -131,12 +131,13 @@ M.config = {
 			-- require("config.lsp.flutter").setup(lsp)
 			require("config.lsp.html").setup(lspconfig, lsp)
 			require("config.lsp.ruby").setup(lspconfig, lsp)
+			require("config.lsp.asm").setup(lspconfig, lsp)
+			require("config.lsp.ts_ls").setup(lspconfig, lsp)
 
 			require 'lspconfig'.html.setup {}
 			require 'lspconfig'.pyright.setup {}
 			require 'lspconfig'.tailwindcss.setup {}
 
-			-- require 'lspconfig'.ts_ls.setup {}
 			require 'lspconfig'.biome.setup {}
 			require 'lspconfig'.cssls.setup {}
 
@@ -274,6 +275,8 @@ M.config = {
 				tex = true,
 				toml = true,
 				prisma = true,
+				-- ruby = true,
+				-- python = true,
 			}
 
 			vim.api.nvim_create_autocmd("BufWritePre", {

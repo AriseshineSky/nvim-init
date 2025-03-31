@@ -11,6 +11,7 @@ return {
 				auto_install = true,
 				sync_install = false,
 				ensure_installed = {
+					"asm",
 					"markdown",
 					"html",
 					"javascript",
