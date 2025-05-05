@@ -65,7 +65,6 @@ M.config = {
 					"cssls",
 					'ts_ls',
 					'eslint',
-					'ruby_lsp',
 					'jsonls',
 					'html',
 					'clangd',
@@ -73,7 +72,7 @@ M.config = {
 					'ansiblels',
 					'terraformls',
 					'texlab',
-					'pyright',
+					'ruff',
 					'yamlls',
 					'tailwindcss',
 					'taplo',
@@ -128,14 +127,14 @@ M.config = {
 			require("config.lsp.c").setup(lspconfig, lsp)
 			require("config.lsp.lua").setup(lspconfig, lsp)
 			require("config.lsp.json").setup(lspconfig, lsp)
-			-- require("config.lsp.flutter").setup(lsp)
 			require("config.lsp.html").setup(lspconfig, lsp)
 			require("config.lsp.ruby").setup(lspconfig, lsp)
+			require("config.lsp.ruff").setup(lspconfig, lsp)
+			require("config.lsp.pyright").setup(lspconfig, lsp)
 			require("config.lsp.asm").setup(lspconfig, lsp)
 			require("config.lsp.ts_ls").setup(lspconfig, lsp)
 
 			require 'lspconfig'.html.setup {}
-			require 'lspconfig'.pyright.setup {}
 			require 'lspconfig'.tailwindcss.setup {}
 
 			require 'lspconfig'.biome.setup {}
@@ -275,20 +274,9 @@ M.config = {
 				tex = true,
 				toml = true,
 				prisma = true,
-				-- ruby = true,
+				ruby = true,
 				-- python = true,
 			}
-
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = "*",
-				callback = function()
-					if format_on_save_filetypes[vim.bo.filetype] then
-						local lineno = vim.api.nvim_win_get_cursor(0)
-						vim.lsp.buf.format({ async = false })
-						pcall(vim.api.nvim_win_set_cursor, 0, lineno)
-					end
-				end,
-			})
 		end
 	},
 }
