@@ -140,18 +140,9 @@ M.config = {
 			require 'lspconfig'.biome.setup {}
 			require 'lspconfig'.cssls.setup {}
 
-			require 'lspconfig'.taplo.setup {}
-
 			require 'lspconfig'.ansiblels.setup {}
 
 			require 'lspconfig'.terraformls.setup {}
-			vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-				pattern = { "*.tf", "*.tfvars", "*.lua" },
-				callback = function()
-					vim.lsp.buf.format()
-				end,
-			})
-
 			require 'lspconfig'.prismals.setup {}
 
 			require 'lspconfig'.texlab.setup {
@@ -271,12 +262,21 @@ M.config = {
 				-- cpp = true,
 				dockerfile = true,
 				terraform = false,
-				tex = true,
 				toml = true,
 				prisma = true,
-				ruby = true,
+				-- ruby = true,
 				-- python = true,
 			}
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function()
+					if format_on_save_filetypes[vim.bo.filetype] then
+						local lineno = vim.api.nvim_win_get_cursor(0)
+						vim.lsp.buf.format({ async = false })
+						pcall(vim.api.nvim_win_set_cursor, 0, lineno)
+					end
+				end,
+			})
 		end
 	},
 }
