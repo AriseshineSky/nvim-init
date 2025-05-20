@@ -40,8 +40,6 @@ M.config = {
 			"folke/neodev.nvim",
 			"ray-x/lsp_signature.nvim",
 			"ldelossa/nvim-dap-projects",
-			-- "MunifTanjim/prettier.nvim",
-			-- "mjlbach/lsp_signature.nvim",
 			"airblade/vim-rooter",
 			"b0o/schemastore.nvim",
 			{
@@ -61,22 +59,16 @@ M.config = {
 			require('mason').setup({})
 			require('mason-lspconfig').setup({
 				ensure_installed = {
-					"biome",
 					"cssls",
 					'ts_ls',
 					'eslint',
 					'jsonls',
 					'html',
 					'clangd',
-					'dockerls',
 					'ansiblels',
-					'terraformls',
-					'texlab',
 					'ruff',
 					'yamlls',
 					'tailwindcss',
-					'taplo',
-					"prismals",
 				}
 			})
 
@@ -88,9 +80,7 @@ M.config = {
 				lsp.default_keymaps({ buffer = bufnr })
 				client.server_capabilities.semanticTokensProvider = nil
 				require("config.plugins.autocomplete").configfunc()
-				-- if vim.bo[bufnr].filetype ~= "dart" then
 				require("lsp_signature").on_attach(F.signature_config, bufnr)
-				-- end
 				vim.diagnostic.config({
 					severity_sort = true,
 					underline = true,
@@ -124,51 +114,17 @@ M.config = {
 
 			local lspconfig = require('lspconfig')
 
-			require("config.lsp.c").setup(lspconfig, lsp)
 			require("config.lsp.lua").setup(lspconfig, lsp)
 			require("config.lsp.json").setup(lspconfig, lsp)
 			require("config.lsp.html").setup(lspconfig, lsp)
 			require("config.lsp.ruby").setup(lspconfig, lsp)
 			require("config.lsp.ruff").setup(lspconfig, lsp)
 			require("config.lsp.pyright").setup(lspconfig, lsp)
-			require("config.lsp.asm").setup(lspconfig, lsp)
 			require("config.lsp.ts_ls").setup(lspconfig, lsp)
 
-			require 'lspconfig'.html.setup {}
 			require 'lspconfig'.tailwindcss.setup {}
-
-			require 'lspconfig'.biome.setup {}
 			require 'lspconfig'.cssls.setup {}
-
 			require 'lspconfig'.ansiblels.setup {}
-
-			require 'lspconfig'.terraformls.setup {}
-			require 'lspconfig'.prismals.setup {}
-
-			require 'lspconfig'.texlab.setup {
-				texlab = {
-					bibtexFormatter = "texlab",
-					build = {
-						args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-						executable = "latexmk",
-						forwardSearchAfter = false,
-						onSave = true
-					},
-					chktex = {
-						onEdit = false,
-						onOpenAndSave = false
-					},
-					diagnosticsDelay = 300,
-					formatterLineLength = 80,
-					forwardSearch = {
-						args = {}
-					},
-					latexFormatter = "latexindent",
-					latexindent = {
-						modifyLineBreaks = false
-					}
-				}
-			}
 
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 				pattern = { "*.hcl" },
@@ -179,6 +135,7 @@ M.config = {
 					vim.cmd("edit!")
 				end,
 			})
+
 			require 'lspconfig'.yamlls.setup({
 				settings = {
 					redhat = {
@@ -216,8 +173,6 @@ M.config = {
 				}
 			})
 
-			require 'lspconfig'.gopls.setup {}
-
 			lsp.setup()
 
 
@@ -251,7 +206,6 @@ M.config = {
 
 			local format_on_save_filetypes = {
 				json = true,
-				go = true,
 				lua = true,
 				html = true,
 				css = true,
@@ -260,10 +214,7 @@ M.config = {
 				typescriptreact = true,
 				-- c = true,
 				-- cpp = true,
-				dockerfile = true,
-				terraform = false,
 				toml = true,
-				prisma = true,
 				-- ruby = true,
 				-- python = true,
 			}

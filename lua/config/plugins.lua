@@ -40,17 +40,13 @@ require("lazy").setup({
 	require("config.plugins.scrollbar"),
 	require("config.plugins.tabline"),
 	require("config.plugins.autocomplete").config,
-	-- require("config.plugins.debugger"),
-	require("config.plugins.joshuto"),
 	require("config.plugins.lspconfig").config,
-	require("config.plugins.go"),
 	require("config.plugins.treesitter"),
 	require("config.plugins.comment"),
 	require("config.plugins.surround"),
 	require("config.plugins.project"),
 	require("config.plugins.wilder"),
 	require("config.plugins.multi-cursor"),
-	-- require("config.plugins.copilot"),
 	require("config.plugins.markdown"),
 	require("config.plugins.git"),
 	require("config.plugins.indent"),
@@ -59,13 +55,10 @@ require("lazy").setup({
 	require("config.plugins.snippets"),
 	require("config.plugins.window-management"),
 	require("config.plugins.undo"),
-	require("config.plugins.ft"),
 	require("config.plugins.fun"),
 	require("config.plugins.winbar"),
 	require("config.plugins.leap"),
-	-- require("config.plugins.tex"),
 	require("config.plugins.yazi"),
-	-- require("config.plugins.snacks"),
 	{ "dstein64/vim-startuptime" },
 	{ "RRethy/nvim-treesitter-endwise" },
 }, {
@@ -73,7 +66,5 @@ require("lazy").setup({
 
 require("plugin.vertical_cursor_movement")
 
-local swap_ternary = require("plugin.swap_ternary")
-vim.keymap.set("n", "<leader>st", swap_ternary.swap_ternary, { noremap = true })
 
 require("plugin.compile_run")
