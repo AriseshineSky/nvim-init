@@ -30,6 +30,7 @@ end
 vim.keymap.set("n", "<leader>pl", ":Lazy<CR>", { noremap = true })
 
 require("lazy").setup({
+	require("config.plugins.null"),
 	{ "folke/snacks.nvim",             enabled = false },
 	require("config.plugins.telescope").config,
 	require("config.plugins.fzf"),
