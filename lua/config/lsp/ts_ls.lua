@@ -1,6 +1,6 @@
 return {
 	setup = function(lspconfig, lsp)
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			init_options = {
 				plugins = {
 					{
