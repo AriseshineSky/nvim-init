@@ -13,27 +13,6 @@ return {
 				vim.notify("null-ls attached to buffer " .. bufnr)
 			end,
 			sources = {
-				null_ls.builtins.diagnostics.rubocop.with({
-					command = "bundle",
-					args = {
-						"exec", "rubocop",
-						"--format", "json",
-						"--force-exclusion",
-						"--stdin", "$FILENAME",
-					},
-					to_stdin = true,
-				}),
-
-				null_ls.builtins.formatting.rubocop.with({
-					command = "bundle",
-					args = {
-						"exec", "rubocop",
-						"--auto-correct-all",
-						"--stdin", "$FILENAME",
-						"--format", "quiet",
-					},
-					to_stdin = true,
-				}),
 			},
 		})
 	end,
