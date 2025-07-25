@@ -1,5 +1,8 @@
 return {
 	setup = function(lspconfig, lsp)
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.offsetEncoding = { "utf-16" }
+
 		lspconfig.solargraph.setup({
 			cmd = { "solargraph", "stdio" },
 			settings = {
